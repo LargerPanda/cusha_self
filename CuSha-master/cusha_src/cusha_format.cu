@@ -93,7 +93,13 @@ void cusha_format::process(
 	uint movingIdx = 0;
 	uint winMovingIdx = 0;
 	for( uint shardIdx = 0; shardIdx < nShards; ++shardIdx ) {
+		/*for test*/
+		std::cout<<"shard "<<shardIdx<<" :\n";
+		/*for test*/
 		for( uint winIdx = 0; winIdx < nShards; ++winIdx ) {
+			/*for test*/
+			std::cout<<"  window "<<winIdx<<" :\n";
+			/*for test*/
 			std::vector<shard_entry>& window = graphWindows.at( shardIdx * nShards + winIdx );
 			for( uint entryIdx = 0; entryIdx < window.size(); ++entryIdx ) {
 				SrcValue[ movingIdx ] = vertexValue[ window.at( entryIdx ).srcIdx ];
@@ -101,6 +107,9 @@ void cusha_format::process(
 				if( sizeof(Edge) > 1 ) EdgeValues[ movingIdx ] = window.at( entryIdx ).edgeVal;
 				if( sizeof(Vertex_static) > 1 ) VertexValuesStatic[ movingIdx ] = tmpVertexValueStatic[ window.at( entryIdx ).srcIdx ];
 				if( procesingMethod == GS ) SrcIndex[ movingIdx ] = window.at( entryIdx ).srcIdx;
+				/*for test*/
+				std::cout<<"SrcValue:"<<SrcValue[ movingIdx ]<<" DstIndex:"<<DstIndex[ movingIdx ]<<" Src num_neighbor:"<<VertexValuesStatic[ movingIdx ]<<"\n";
+				/*for test*/
 				++movingIdx;
 			}
 			windowSizesScansVertical[ winMovingIdx + 1 ] = windowSizesScansVertical[ winMovingIdx ] + window.size();
@@ -126,6 +135,8 @@ void cusha_format::process(
 		concatenatedWindowsSizesScan[ winIdx + 1 ] = movingIdx;
 	}
 	graphWindows.clear();
+	
+	
 
 	// Define and allocate device buffers.
 	device_buffer<Vertex> dev_vertexValue( nVertices );
