@@ -56,7 +56,10 @@ void cusha_format::process(
 	for( uint vIdx = 0; vIdx < nVerticesInitially; ++vIdx ) {
 		initial_vertex& vvv = initGraph->at(vIdx);
 		vertexValue[ vIdx ] = vvv.vertexValue;
-		if( sizeof(Vertex_static) > 1 ) tmpVertexValueStatic[ vIdx ] = vvv.VertexValueStatic;
+		if( sizeof(Vertex_static) > 1 ) {
+			tmpVertexValueStatic[ vIdx ] = vvv.VertexValueStatic;
+			std::cout << "vertex "<<vIdx<<"'s neighbor num is"<<tmpVertexValueStatic[ vIdx ].NbrsNum<<"\n";
+		}
 		uint nNbrs = vvv.nbrs.size();
 		for( uint nbrIdx = 0; nbrIdx < nNbrs; ++nbrIdx ) {
 			neighbor& nbr = vvv.nbrs.at( nbrIdx );
