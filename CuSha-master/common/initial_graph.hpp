@@ -19,7 +19,7 @@ public:
 	initial_vertex():
 		nbrs(0)
 	{
-		VertexValueStaic.NbrsNum = 0;
+		VertexValueStatic.NbrsNum = 0;
 	}
 	Vertex& get_vertex_ref() {
 		return vertexValue;
