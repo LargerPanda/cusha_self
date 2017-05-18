@@ -18,7 +18,9 @@ public:
 	std::vector<neighbor> nbrs;
 	initial_vertex():
 		nbrs(0)
-	{}
+	{
+		VertexValueStaic.NbrsNum = 0;
+	}
 	Vertex& get_vertex_ref() {
 		return vertexValue;
 	}

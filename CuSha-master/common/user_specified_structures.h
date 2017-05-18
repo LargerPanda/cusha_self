@@ -29,7 +29,7 @@ struct Vertex{
 typedef struct Vertex_static{
 
 #ifdef PR
-	unsigned int NbrsNum=0;
+	unsigned int NbrsNum;
 #endif
 
 }Vertex_static;
