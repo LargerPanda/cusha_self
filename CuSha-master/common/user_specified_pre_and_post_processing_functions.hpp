@@ -42,6 +42,7 @@ inline void completeEntry(
 	src_vertex_ref.rank = PR_INITIAL_VALUE;
 	dst_vertex_ref.rank = PR_INITIAL_VALUE;
 	(src_vertex_static_address->NbrsNum)++;
+	std::cout<<"Vertex "<<src_vertex_index<<"'s num_neighbor+1,now is "<<src_vertex_static_address->NbrsNum<<"\n";
 #endif
 
 }
