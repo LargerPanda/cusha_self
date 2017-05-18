@@ -41,7 +41,7 @@ inline void completeEntry(
 #ifdef PR
 	src_vertex_ref.rank = PR_INITIAL_VALUE;
 	dst_vertex_ref.rank = PR_INITIAL_VALUE;
-	src_vertex_static_address->NbrsNum = ( argcount > 0 ) ? atoi( argvector[0] ) : 0;
+	(src_vertex_static_address->NbrsNum)++;
 #endif
 
 }
