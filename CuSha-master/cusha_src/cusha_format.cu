@@ -108,7 +108,7 @@ void cusha_format::process(
 				if( sizeof(Vertex_static) > 1 ) VertexValuesStatic[ movingIdx ] = tmpVertexValueStatic[ window.at( entryIdx ).srcIdx ];
 				if( procesingMethod == GS ) SrcIndex[ movingIdx ] = window.at( entryIdx ).srcIdx;
 				/*for test*/
-				std::cout<<"   SrcValue:"<<SrcValue[movingIdx]<<"\n";
+				std::cout<<"   SrcValue:"<<SrcValue[movingIdx].rank<<" DstIndex:"<<DstIndex[movingIdx]<<" Src num_neighbor:"<<VertexValuesStatic[ movingIdx ].NbrsNum<<"\n";
 				/*for test*/
 				++movingIdx;
 			}
